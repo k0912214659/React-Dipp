@@ -1,10 +1,12 @@
 module.exports = {
+  parser: 'babel-eslint',
   env: {
     browser: true,
     es6: true,
   },
   extends: [
     'airbnb',
+    'eslint-config-airbnb',
   ],
   globals: {
     Atomics: 'readonly',
@@ -19,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'import',
   ],
   rules: {
     'indent': 'off',
@@ -43,6 +46,8 @@ module.exports = {
     'no-useless-constructor': 'off',
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'no-param-reassign': 'off',
+    'no-useless-catch': 'off',
+    'class-methods-use-this': 'off',
   },
   settings: {
     "import/resolver": {
@@ -54,6 +59,7 @@ module.exports = {
           ["@API", "./src/api"],
           ["@Tools", "./src/tools"],
           ["@Hooks", "./src/hooks"],
+          ["@Service", "./src/service"],
           ["@Models", "./src/models"],
           ["@CSS", "./src/css"],
           ["@Langs", "./src/langs"]

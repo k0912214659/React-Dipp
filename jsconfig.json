@@ -16,6 +16,7 @@
       "@Images": ["image-loader/*"],
       "@Tools/*": ["tools/*"],
       "@Hooks/*": ["hooks/*"],
+      "@Service/*": ["service/*"],
       "@Models/*": ["models/*"],
       "@CSS/*": ["css/*"],
       "@Langs": ["langs/*"]
