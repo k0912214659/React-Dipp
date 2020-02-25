@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "noEmitOnError": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@Base/*": ["base/*"],
+      "@Components/*": ["components/*"],
+      "@Reducers/*": ["reducers/*"],
+      "@API/*": ["api/*"],
+      "@Images": ["image-loader/*"],
+      "@Tools/*": ["tools/*"],
+      "@Hooks/*": ["hooks/*"],
+      "@Models/*": ["models/*"],
+      "@CSS/*": ["css/*"],
+      "@Langs": ["langs/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
