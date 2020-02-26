@@ -62,7 +62,7 @@ module.exports = {
           ["@Service", "./src/service"],
           ["@Models", "./src/models"],
           ["@CSS", "./src/css"],
-          ["@Langs", "./src/langs"]
+          ["@Source", "./src/source"]
         ],
         "extensions": [".js", ".jsx", ".json"]
       }

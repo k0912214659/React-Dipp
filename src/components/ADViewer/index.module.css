@@ -1,0 +1,5 @@
+/* Component Style */
+:local(.adViewerContainer) {
+  width: 100%;
+  height: 100%;
+}

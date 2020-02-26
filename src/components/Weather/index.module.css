@@ -1,0 +1,5 @@
+/* Component Style */
+:local(.weatherContainer) {
+  width: 100%;
+  height: 100%;
+}
