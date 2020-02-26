@@ -7,6 +7,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.44",
     "axios": "^0.19.2",
+    "classnames": "^2.2.6",
     "immer": "^5.3.6",
     "lodash": "^4.17.15",
     "react": "^16.12.0",
@@ -14,6 +15,7 @@
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
+    "react-spring": "^8.0.27",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
@@ -83,7 +85,8 @@
       "^@Hooks(.*)$": "<rootDir>/src/hooks/$1",
       "^@Service(.*)$": "<rootDir>/src/service/$1",
       "^@Models(.*)$": "<rootDir>/src/models/$1",
-      "^@CSS(.*)$": "<rootDir>/src/css/$1"
+      "^@CSS(.*)$": "<rootDir>/src/css/$1",
+      "^@Source(.*)$": "<rootDir>/src/source/$1"
     },
     "moduleFileExtensions": [
       "web.js",
