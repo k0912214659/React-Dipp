@@ -48,7 +48,7 @@ function Lazy(lazyProps) {
   }, [componentChunkName]);
   return (
     <React.Fragment>
-      <Suspense fallback={<Loading typePosition="relative" typeZIndex={10005} typeIcon="line:fix" isLoading />}>
+      <Suspense fallback={<Loading typePosition="absolute" typeZIndex={10005} typeIcon="line:fix" isLoading />}>
         {RenderComponent}
       </Suspense>
     </React.Fragment>

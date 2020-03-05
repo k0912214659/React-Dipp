@@ -18,6 +18,7 @@ export function createMessageReducer(params) {
         draft.updateMessageConfirmList(action.confirm);
         break;
       case MESSAGE_ACTION.REMOVE_MESSAGE_CONFIRM:
+        draft.removeMessageConfirm();
         break;
       default:
         break;

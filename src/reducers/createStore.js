@@ -6,6 +6,8 @@ import {
 import thunk from 'redux-thunk';
 import { createGlobalReducer } from './global';
 import { createMessageReducer } from './message';
+import { createWeatherReducer } from './weather';
+import { createUserReducer } from './user';
 
 async function createStore(params) {
   const { initialState } = params;
@@ -16,6 +18,12 @@ async function createStore(params) {
       }),
       message: createMessageReducer({
         initialState: initialState.message,
+      }),
+      weather: createWeatherReducer({
+        initialState: initialState.weather,
+      }),
+      user: createUserReducer({
+        initialState: initialState.user,
       }),
     }),
     applyMiddleware(thunk),

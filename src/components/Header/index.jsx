@@ -8,16 +8,16 @@ function Header() {
   /* Global & Local States */
   /* Main */
   return (
-    <div className={classNames(Styles.headerContainer, Styles.themeGoogle)}>
+    <div className={classNames(Styles.headerContainer)}>
       <div className={classNames(Styles.headerImage, Styles.flexCentral)}>
-        <a className={classNames(Styles.headerImageTemplate)} href={`${window.location.origin}/home`}>
+        <div className={classNames(Styles.headerImageTemplate)}>
           <Image
             className={classNames(Styles.headerImageStyle)}
             src={loadImage('general/logo.png')}
             alt="classroom-home"
             typeSize="fit"
           />
-        </a>
+        </div>
       </div>
     </div>
   );

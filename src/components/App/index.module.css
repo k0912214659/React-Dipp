@@ -8,12 +8,10 @@
 :local(.appHeader) {
   width: 100% !important;
   height: 65px !important;
-  position: fixed;
-  top: 0;
 }
 :local(.appBody) {
   width: 100% !important;
-  height: 100% !important;
+  height: calc(100% - 65px) !important;
   display: flex;
 }
 :local(.appHeart) {
@@ -29,4 +27,5 @@
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;
+  background: #f4f6f8;
 }

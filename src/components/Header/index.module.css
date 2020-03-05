@@ -16,16 +16,6 @@
   height: 100% !important;
 }
 
-/* Theme Style */
-:local(.themeGoogle) {
-  background: #F5F5F5;
-  box-shadow: 0px 0px 32px rgba(206, 206, 206, 0.25);
-}
-:local(.themeMicroSoft) {
-  background: #F5F5F5;
-  box-shadow: 0px 0px 32px rgba(206, 206, 206, 0.25);
-}
-
 /* Component Style */
 :local(.headerContainer) {
   width: 100%;
@@ -34,51 +24,15 @@
   justify-content: space-between;
 }
 :local(.headerImage) {
-  width: 216px;
+  width: 90px;
   height: 100%;
-}
-:local(.headerTools) {
-  min-width: 180px;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
 }
 :local(.headerImageTemplate) {
-  width: 192px;
-  height: 20px;
-  margin-top: 10px;
+  width: 50%;
+  height: 50%;
   position: relative;
 }
 :local(.headerImageStyle) {
   opacity: 1;
 }
-:local(.headerToolsNotification) {
-  width: 25px;
-  height: 100%;
-}
-:local(.headerToolsUser) {
-  min-width: 100px;
-  height: 100%;
-  margin: 0px 10px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 24px;
-}
-:local(.headerToolsOptions) {
-  width: 50px;
-  height: 100%;
-  position: relative;
-}
-:local(.headerToolsNotificationStyle ){
-  color: #333333;
-  cursor: pointer;
-}
-:local(.headerToolsUserStyle) {
-  color: #2E2E2E;
-  cursor: context-menu;
-}
-:local(.headerToolsOptionsStyle) {
-  color: #000000;
-  cursor: pointer;
-}
+

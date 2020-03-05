@@ -109,6 +109,3 @@
 :local(.loadingZIndex) {
   z-index: 1000;
 }
-:local(.loadingCustomColor) {
-  color: #990000 !important;
-}

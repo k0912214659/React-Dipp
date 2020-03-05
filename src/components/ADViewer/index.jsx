@@ -6,6 +6,7 @@ function ADViewer() {
   /* Global & Local States */
   /* Functions */
   /* Views */
+  /* Hooks */
   /* Main */
   return (
     <div className={classNames(Styles.adViewerContainer)}>

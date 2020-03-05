@@ -100,33 +100,17 @@ class BaseAPIService {
     return this.baseAPIServiceType;
   }
 
-  getApiExternalProps() {
-    return this.baseAPIExternalProps;
+  getApiExternalProps(externalProps) {
+    if (typeof externalProps === 'string') {
+      if (externalProps in this.baseAPIExternalProps) {
+        return this.baseAPIExternalProps[externalProps];
+      }
+    }
+    return null;
   }
 
   getApiClient() {
     return this.baseAPIClient;
-  }
-
-  async getErrorHandleCommand() {
-    throw new Error('Not implement Error Handle Command');
-  }
-
-  async triggerErrorHandle(err) {
-    const {
-      response,
-    } = err;
-    if (response) {
-      const errorCommand = await this.getErrorHandleCommand(response);
-      const errorHandle = this.getApiErrorHandlerByType(errorCommand.command);
-      if (errorHandle && typeof errorHandle === 'function') {
-        errorHandle(err);
-      } else {
-        throw new Error('Not Implement Error Command Function');
-      }
-    } else {
-      throw err;
-    }
   }
 
   async triggerDelayForRateLimit() {
