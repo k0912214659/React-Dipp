@@ -40,38 +40,47 @@ export const getWeatherCityList = (page = 1, query = '', max = 10) => async (dis
 };
 
 export const getWeatherCitySettingList = () => async (dispatch, getState) => {
-  const apiObject = getState().global.globalAPIS.serviceAPI;
-  const result = await apiObject.getServiceByType('WeatherAPI').getHostWeatherCitySettingList();
-  const resultCityData = await apiObject.getServiceByType('WeatherAPI').getHostWeatherData(result.map((city) => city.id));
+  const apiServiceObject = getState().global.globalAPIS.serviceAPI;
+  const apiObject = getState().global.globalAPIS.hostAPI;
+  const result = await apiObject.weatherPreset.getHostWeatherCitySettingList();
+  const resultArray = Object.entries(result).map((ele) => ({
+    firebaseID: ele[0],
+    ...ele[1],
+  }));
+  const resultCityData = await apiServiceObject.getServiceByType('WeatherAPI').getHostWeatherData(Object.values(result).map((city) => city.id));
+  const resultCityNewArray = resultCityData.map((city, index) => ({ ...city, firebaseID: resultArray[index].firebaseID }));
+  if (!resultCityData.error) {
+    dispatch(SET_WEATHER_CITY_DATA_LIST({
+      list: resultCityNewArray,
+    }));
+  }
+  if (resultCityData.error) {
+    dispatch(SET_WEATHER_CITY_DATA_LIST({
+      list: getState().weather.weatherCityDataList,
+    }));
+    dispatch(errorCatch(resultCityData.error));
+  }
   if (!result.error) {
     dispatch(SET_WEATHER_CITY_SETTING_LIST({
       list: {
-        list: result,
+        list: resultArray,
       },
     }));
   }
   if (result.error) {
     dispatch(SET_WEATHER_CITY_SETTING_LIST({
       list: {
-        list: result,
+        list: resultArray,
         error: result.error,
       },
     }));
     dispatch(errorCatch(result.error));
   }
-  if (!resultCityData.error) {
-    dispatch(SET_WEATHER_CITY_DATA_LIST({
-      list: resultCityData,
-    }));
-  }
-  if (resultCityData.error) {
-    dispatch(errorCatch(result.error));
-  }
 };
 
 export const postWeatherCitySetting = (city) => async (dispatch, getState) => {
-  const apiObject = getState().global.globalAPIS.serviceAPI;
-  const result = await apiObject.getServiceByType('WeatherAPI').postHostWeatherCity(city);
+  const apiObject = getState().global.globalAPIS.hostAPI;
+  const result = await apiObject.weatherPreset.postHostWeatherCity(city);
   if (!result.error) {
     dispatch(getWeatherCitySettingList());
   }
@@ -81,9 +90,11 @@ export const postWeatherCitySetting = (city) => async (dispatch, getState) => {
   }
 };
 
-export const deleteWeatherCitySetting = (cityCode) => async (dispatch, getState) => {
-  const apiObject = getState().global.globalAPIS.serviceAPI;
-  const result = await apiObject.getServiceByType('WeatherAPI').deleteHostWeatherCity(cityCode);
+export const deleteWeatherCitySetting = (cityID) => async (dispatch, getState) => {
+  const apiObject = getState().global.globalAPIS.hostAPI;
+  const weatherCitySettingList = getState().weather.weatherCityDataList;
+  const targetCityIndex = weatherCitySettingList.findIndex((cityObject) => cityObject.city.id === cityID);
+  const result = await apiObject.weatherPreset.deleteHostWeatherCity(weatherCitySettingList[targetCityIndex].firebaseID);
   if (!result.error) {
     dispatch(getWeatherCitySettingList());
   }

@@ -8,17 +8,6 @@ class WeatherAPI extends BaseAPIService {
     this.setApiBaseServiceType('WeatherAPI');
     this.setApiBaseUrl('http://api.openweathermap.org');
     this.setApiKey('27e5ae017372abef45f4085ab89232d4');
-    this.initializeLocalStorage();
-  }
-
-  async initializeLocalStorage() {
-    const localStorageKey = 'react-dipp:settingData';
-    const defaultSettingData = [];
-    const localItemOrigin = localStorage.getItem(localStorageKey);
-    if (!localItemOrigin) {
-      localStorage.setItem(localStorageKey, JSON.stringify(defaultSettingData));
-    }
-    this.setApiExternalProps('weatherAPILocalStorage', localStorageKey);
   }
 
   async getHostWeatherCityList(page = 1, query = '', max = 10) {
@@ -54,73 +43,6 @@ class WeatherAPI extends BaseAPIService {
       const errorMessage = {
         data: cityListObject,
         error: new Error('Get Local Weather City List Error', error),
-      };
-      return errorMessage;
-    }
-  }
-
-  async getHostWeatherCitySettingList() {
-    await delay(400);
-    try {
-      let returnData = [];
-      const localStorageKey = this.getApiExternalProps('weatherAPILocalStorage');
-      const localItemOrigin = localStorage.getItem(localStorageKey);
-      if (localItemOrigin) {
-        const localItemParse = JSON.parse(localItemOrigin);
-        returnData = localItemParse;
-      }
-      return returnData;
-    } catch (error) {
-      const errorMessage = {
-        data: [],
-        error: new Error('Get Local Weather City Setting List Error', error),
-      };
-      return errorMessage;
-    }
-  }
-
-  async postHostWeatherCity(cityCode) {
-    await delay(400);
-    try {
-      let returnData = [];
-      const localStorageKey = this.getApiExternalProps('weatherAPILocalStorage');
-      const localItemOrigin = localStorage.getItem(localStorageKey);
-      if (localItemOrigin) {
-        const localItemParse = JSON.parse(localItemOrigin);
-        localItemParse.push(cityCode);
-        localStorage.setItem(localStorageKey, JSON.stringify(localItemParse));
-        returnData = localItemParse;
-      }
-      return returnData;
-    } catch (error) {
-      const errorMessage = {
-        data: [],
-        error: new Error('Get Local OrderBoard Item Error', error),
-      };
-      return errorMessage;
-    }
-  }
-
-  async deleteHostWeatherCity(cityCode) {
-    await delay(400);
-    try {
-      let returnData = [];
-      const localStorageKey = this.getApiExternalProps('weatherAPILocalStorage');
-      const localItemOrigin = localStorage.getItem(localStorageKey);
-      if (localItemOrigin) {
-        const localItemParse = JSON.parse(localItemOrigin);
-        const targetItemIndex = localItemParse.findIndex((item) => item.id === cityCode);
-        if (targetItemIndex > -1) {
-          localItemParse.splice(targetItemIndex, 1);
-        }
-        localStorage.setItem(localStorageKey, JSON.stringify(localItemParse));
-        returnData = localItemParse;
-      }
-      return returnData;
-    } catch (error) {
-      const errorMessage = {
-        data: [],
-        error: new Error('Get Local OrderBoard Item Error', error),
       };
       return errorMessage;
     }

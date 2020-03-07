@@ -3,6 +3,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/database';
 import { CreateUserOperationAPI } from './user-apis';
+import { CreateWeatherPresetOperationAPI } from './weatherPreset-apis';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyACIeRAIqzgMc9Y4bgB1YXeD71v7wdzNE0',
@@ -17,6 +18,7 @@ firebase.initializeApp({
 class API {
   constructor() {
     this.user = CreateUserOperationAPI({ firebase });
+    this.weatherPreset = CreateWeatherPresetOperationAPI({ firebase });
   }
 }
 
