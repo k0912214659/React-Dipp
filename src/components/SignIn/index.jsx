@@ -5,6 +5,7 @@ import React, {
 } from 'react';
 import classNames from 'classnames';
 import cloneDeep from 'lodash/cloneDeep';
+import debounce from 'lodash/debounce';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -71,6 +72,14 @@ function SignIn() {
     };
     requestPostUserInformation(loginInformation.email, loginInformation.password, null, failedCallback);
   };
+  const onSearchResult = debounce((value) => {
+    onSignIn(value);
+  }, 300);
+  const onSearchKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      onSearchResult();
+    }
+  };
   /* Data */
   const RenderSignInDisable = useMemo(() => {
     if (getIsEmail(loginInformation.email) && loginInformation.password.length > 6) {
@@ -116,15 +125,15 @@ function SignIn() {
   }, [loginInformation, isInputOnFocus]);
   const RenderShowPasswordType = useMemo(() => {
     if (isShowPassword) {
-      return 'password';
+      return 'text';
     }
-    return 'text';
+    return 'password';
   }, [isShowPassword]);
   const RenderShowPasswordIcon = useMemo(() => {
     if (isShowPassword) {
-      return <VisibilityOff />;
+      return <Visibility />;
     }
-    return <Visibility />;
+    return <VisibilityOff />;
   }, [isShowPassword]);
   /* Views */
   const RenderLoading = useMemo(() => (
@@ -194,6 +203,7 @@ function SignIn() {
                 helperText={RenderErrorPassword}
                 error={RenderErrorPasswordBoolean}
                 onChange={onFormTextChange}
+                onKeyDown={onSearchKeyDown}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">

@@ -79,7 +79,7 @@ function App({ Router, routerProps }) {
           return (<LazyComponent componentImport={import('./RouteComponent/GuestRoute')} componentChunkName="GuestRouteChunk" />);
       }
     }
-    return (<LazyComponent componentImport={import('./RouteComponent/GuestRoute')} componentChunkName="GuestRouteChunk" />);
+    return (<React.Fragment />);
   }, [storeUser.userIdentity, isCheckDown]);
   const RenderLoading = useMemo(() => (
     <Loading

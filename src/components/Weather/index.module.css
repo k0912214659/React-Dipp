@@ -12,14 +12,5 @@
 }
 :local(.weatherInnerContainer) {
   position: relative;
-}
-:local(.weatherHeaderContainer) {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  position: relative;
-}
-:local(.weatherListContainer) {
-  width: 100%;
-  height: calc(100% - 40px);
+  max-height: 100%;
 }

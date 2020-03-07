@@ -58,7 +58,10 @@ function Header(headerProps) {
         <div className={classNames(Styles.headerLogoProfileTextContainer)}>
           {storeUser.userInformation.name}
         </div>
-        <Button onClick={onSignOut}>
+        <Button
+          className={classNames(Styles.headerLogoProfileButtonStyle)}
+          onClick={onSignOut}
+        >
           Sign Out
         </Button>
       </div>

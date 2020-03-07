@@ -21,7 +21,7 @@ class WeatherAPI extends BaseAPIService {
     this.setApiExternalProps('weatherAPILocalStorage', localStorageKey);
   }
 
-  async getHostWeatherCityList(page = 1, max = 10) {
+  async getHostWeatherCityList(page = 1, query = '', max = 10) {
     await delay(400);
     const groupsByMax = [];
     const cityListObject = {
@@ -31,9 +31,10 @@ class WeatherAPI extends BaseAPIService {
         total: 1,
       },
     };
+    const cityListFiler = query ? CityJson.filter((city) => city.name.toLowerCase().indexOf(query.toLowerCase()) > -1) : CityJson;
     try {
-      for (let i = 0, len = CityJson.length; i < len; i += max) {
-        groupsByMax.push(CityJson.slice(i, i + max));
+      for (let i = 0, len = cityListFiler.length; i < len; i += max) {
+        groupsByMax.push(cityListFiler.slice(i, i + max));
       }
       if (groupsByMax.length === 1) {
         cityListObject.list = groupsByMax[0];
@@ -125,15 +126,22 @@ class WeatherAPI extends BaseAPIService {
     }
   }
 
-  async getHostWeatherData(cityCode) {
-    const defaultReturnValue = {};
+  async getHostWeatherData(cityCodeArray) {
+    const defaultReturnValue = [];
     try {
-      const result = await this._get(`/data/2.5/forecast?id=${cityCode}&appid=${this.getApiKey()}`, {
-        params: {
-          units: 'imperial',
-        },
-      });
-      if (Object.keys(result).length > 0) {
+      const result = [];
+      for (let i = 0; i < cityCodeArray.length; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        const res = await this._get(`/data/2.5/forecast?id=${cityCodeArray[i]}&appid=${this.getApiKey()}`, {
+          params: {
+            units: 'imperial',
+          },
+        });
+        result.push(res);
+        // eslint-disable-next-line no-await-in-loop
+        await delay(400);
+      }
+      if (result.length > 0) {
         return result;
       }
       return defaultReturnValue;

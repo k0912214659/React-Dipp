@@ -14,6 +14,7 @@ import Loading from '@Components/Base/Loading';
 import {
   getWeatherCitySettingList,
 } from '@Reducers/weather/actions';
+import WeatherViewList from './SubComponent/WeatherViewList';
 import Styles from './index.module.css';
 
 function WeatherClient() {
@@ -34,6 +35,12 @@ function WeatherClient() {
     setRequestCounter(1);
   };
   /* Views */
+  const RenderWeatherViewList = useMemo(() => (
+    <WeatherViewList
+      weatherCityDataList={storeWeather.weatherCityDataList}
+      requestCounter={requestCounter}
+    />
+  ), [storeWeather.weatherCityDataList, requestCounter]);
   const RenderLoading = useMemo(() => (
     <Loading
       typePosition="absolute"
@@ -74,22 +81,14 @@ function WeatherClient() {
         <Grid
           className={classNames(Styles.weatherClientInnerContainer)}
           item
-          xs={10}
-          sm={8}
-          md={6}
+          xs={11}
+          sm={11}
+          md={7}
         >
-          <div>
-            {
-              storeWeather.weatherCitySettingList.list.map((city) => (
-                <div key={city.id}>
-                  {city.name}
-                </div>
-              ))
-            }
-          </div>
+          {RenderWeatherViewList}
         </Grid>
-        {RenderLoading}
       </Grid>
+      {RenderLoading}
     </div>
   );
 }

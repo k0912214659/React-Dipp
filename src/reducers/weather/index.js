@@ -15,7 +15,7 @@ export function createWeatherReducer(params) {
         draft.updateWeatherCitySettingList(action.list);
         break;
       case WEATHER_ACTION.SET_WEATHER_CITY_DATA_LIST:
-        draft.updateWeatherCityData(action.data);
+        draft.updateWeatherCityData(action.list);
         break;
       default:
         break;

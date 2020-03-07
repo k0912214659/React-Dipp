@@ -13,6 +13,12 @@ const DefAnimationStyle = {
 };
 
 const FixLinearProgress = withStyles({
+  colorPrimary: {
+    backgroundColor: 'white',
+  },
+  barColorPrimary: {
+    backgroundColor: '#e96e50',
+  },
   root: {
     width: '100%',
     position: 'fixed',
@@ -22,6 +28,12 @@ const FixLinearProgress = withStyles({
 })(LinearProgress);
 
 const RelativeLinearProgress = withStyles({
+  colorPrimary: {
+    backgroundColor: 'white',
+  },
+  barColorPrimary: {
+    backgroundColor: '#e96e50',
+  },
   root: {
     width: '100%',
     position: 'absolute',

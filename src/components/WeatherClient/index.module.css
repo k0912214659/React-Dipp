@@ -7,20 +7,9 @@
 }
 :local(.weatherClientMainContainer) {
   margin: 0;
-  padding: 5px 0px 100px 0px;
   position: relative;
   overflow-x: auto;
 }
 :local(.weatherClientInnerContainer) {
   position: relative;
-}
-:local(.weatherClientHeaderContainer) {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  position: relative;
-}
-:local(.weatherClientListContainer) {
-  width: 100%;
-  height: calc(100% - 40px);
 }
