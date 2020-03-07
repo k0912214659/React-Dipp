@@ -13,11 +13,11 @@ function AdminRoute() {
       />
       <Route
         path="/weather"
-        render={() => <LazyComponent componentImport={import('@Components/Weather')} componentChunkName="WeatherChunk" />}
+        render={() => <LazyComponent componentImport={import('@Components/Weather')} componentChunkName="AdminWeatherChunk" />}
       />
       <Route
         path="/adviewer"
-        render={() => <LazyComponent componentImport={import('@Components/ADViewer')} componentChunkName="ADViewerChunk" />}
+        render={() => <LazyComponent componentImport={import('@Components/ADViewer')} componentChunkName="AdminADViewerChunk" />}
       />
       <Redirect to="/weather" />
     </Switch>

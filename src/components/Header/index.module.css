@@ -1,38 +1,47 @@
-/* General Style */
-:local(.flexCentral) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-:local(.flexStart) {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
-}
-:local(.featParent) {
-  width: 100% !important;
-  height: 100% !important;
-}
-
 /* Component Style */
-:local(.headerContainer) {
-  width: 100%;
+:local(.headerAppStyle) {
   height: 100%;
   display: flex;
   justify-content: space-between;
+  flex-direction: row !important;
 }
-:local(.headerImage) {
-  width: 90px;
+:local(.headerLogoContainer) {
   height: 100%;
-}
-:local(.headerImageTemplate) {
-  width: 50%;
-  height: 50%;
   position: relative;
+  display: flex;
+  padding: 10px;
 }
-:local(.headerImageStyle) {
-  opacity: 1;
+:local(.headerLogoIconContainer) {
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
 }
-
+:local(.headerLogoTextContainer) {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:local(.headerLogoProfileContainer) {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:local(.headerLogoProfileIconContainer) {
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:local(.headerLogoProfileTextContainer) {
+  height: 100%;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

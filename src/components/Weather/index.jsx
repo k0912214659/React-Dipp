@@ -26,7 +26,6 @@ import {
   getWeatherCitySettingList,
   postWeatherCitySetting,
   deleteWeatherCitySetting,
-  getWeatherCityData,
 } from '@Reducers/weather/actions';
 import Styles from './index.module.css';
 
@@ -73,7 +72,6 @@ function Weather() {
     requestGetWeatherCityList();
     requestGetWeatherCitySettingList();
     setRequestCounter(2);
-    dispatch(getWeatherCityData(1668341));
   };
   /* Views */
   const RenderPage = ({ from, to, count }) => (`${from}-${to === -1 ? count : to} of ${count}`);

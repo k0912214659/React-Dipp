@@ -13,7 +13,7 @@ function ClientRoute() {
       />
       <Route
         path="/weather"
-        render={() => <LazyComponent componentImport={import('@Components/WeatherClient')} componentChunkName="WeatherChunk" />}
+        render={() => <LazyComponent componentImport={import('@Components/WeatherClient')} componentChunkName="ClientWeatherChunk" />}
       />
       <Redirect to="/weather" />
     </Switch>

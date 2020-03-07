@@ -5,10 +5,12 @@ import { Guest, Client, Admin } from '@Base/identity';
 class User extends Immerable {
   constructor() {
     super();
-    this.userIdentity = Guest;
+    this.userIdentity = null;
     this.userInformation = {
       id: '',
       name: '',
+      email: '',
+      identity: '',
     };
   }
 
@@ -17,19 +19,19 @@ class User extends Immerable {
     this.userInformation = cloneNewUserInformation;
   }
 
-  updateUserIdentity(identityID) {
-    switch (identityID) {
-      case 1:
+  updateUserIdentity(identity) {
+    switch (identity) {
+      case 'admin':
         this.userIdentity = Admin;
         break;
-      case 2:
+      case 'client':
         this.userIdentity = Client;
         break;
-      case 3:
+      case 'guest':
         this.userIdentity = Guest;
         break;
       default:
-        this.userIdentity = Guest;
+        this.userIdentity = null;
         break;
     }
   }

@@ -9,7 +9,7 @@ export const MESSAGE_ACTION = Object.freeze({
   REMOVE_MESSAGE_CONFIRM: Symbol('REMOVE_MESSAGE_CONFIRM'),
 });
 export const USER_ACTION = Object.freeze({
-  SET_USER_INFORMATION: Symbol('SET_USER_INFORMATION'),
+  SET_USER_INFO: Symbol('SET_USER_INFO'),
   SET_USER_IDENTITY: Symbol('SET_USER_IDENTITY'),
 });
 export const WEATHER_ACTION = Object.freeze({

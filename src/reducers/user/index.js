@@ -8,7 +8,7 @@ export function createUserReducer(params) {
   ) => produce(state, (_draft) => {
     const draft = _draft;
     switch (action.type) {
-      case USER_ACTION.SET_USER_INFORMATION:
+      case USER_ACTION.SET_USER_INFO:
         draft.updateUserInformation(action.info);
         break;
       case USER_ACTION.SET_USER_IDENTITY:

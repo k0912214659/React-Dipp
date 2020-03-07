@@ -1,6 +1,7 @@
 import cloneDeep from 'lodash/cloneDeep';
 import Immerable from '@Models/GeneralImmer';
 import { getHostURL } from '@Tools/url-parser';
+import API from '@API';
 import Service from '@Service';
 
 class Global extends Immerable {
@@ -10,7 +11,7 @@ class Global extends Immerable {
     this.globalHost = getHostURL(props.API_ENV);
     this.globalAPIS = {
       serviceAPI: new Service(),
-      hostAPI: '',
+      hostAPI: new API(),
       hostURL: getHostURL(props.API_ENV),
     };
     this.globalLang = 'en';

@@ -54,6 +54,7 @@
   width: 100%;
   height: 50px;
   margin-top: 25px;
+  padding: 0px 30px;
   position: relative;
 }
 :local(.signInFormActionContainer) {

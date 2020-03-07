@@ -1,4 +1,5 @@
 import { WEATHER_ACTION } from '@Reducers/createConstants';
+import { errorCatch } from '@Reducers/errorCapture';
 
 /* Weather */
 export const SET_WEATHER_CITY_LIST = ({ list }) => ({
@@ -34,6 +35,7 @@ export const getWeatherCityList = (page = 1, max = 10) => async (dispatch, getSt
         error: result.error,
       },
     }));
+    dispatch(errorCatch(result.error));
   }
 };
 
@@ -54,6 +56,7 @@ export const getWeatherCitySettingList = () => async (dispatch, getState) => {
         error: result.error,
       },
     }));
+    dispatch(errorCatch(result.error));
   }
 };
 
@@ -65,6 +68,7 @@ export const postWeatherCitySetting = (cityCode) => async (dispatch, getState) =
   }
   if (result.error) {
     dispatch(getWeatherCityList());
+    dispatch(errorCatch(result.error));
   }
 };
 
@@ -76,6 +80,7 @@ export const deleteWeatherCitySetting = (cityCode) => async (dispatch, getState)
   }
   if (result.error) {
     dispatch(getWeatherCitySettingList());
+    dispatch(errorCatch(result.error));
   }
 };
 
@@ -91,5 +96,6 @@ export const getWeatherCityData = (cityCode) => async (dispatch, getState) => {
     dispatch(SET_WEATHER_CITY_DATA_LIST({
       list: [...getState().weather.weatherCityDataList],
     }));
+    dispatch(errorCatch(result.error));
   }
 };

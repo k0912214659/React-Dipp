@@ -12,7 +12,7 @@ import useDidMount from '@Hooks/useDidMount';
 import useMappedState from '@Hooks/useMappedState';
 import Loading from '@Components/Base/Loading';
 import {
-  getWeatherCityList,
+  getWeatherCitySettingList,
 } from '@Reducers/weather/actions';
 import Styles from './index.module.css';
 
@@ -24,13 +24,13 @@ function WeatherClient() {
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstUpdate, setIsFirstUpdate] = useState(false);
   /* Functions */
-  const requestGetWeatherCityList = (page = 1) => {
-    dispatch(getWeatherCityList(page));
+  const requestGetWeatherSettingCityList = (page = 1) => {
+    dispatch(getWeatherCitySettingList(page));
     setIsLoading(true);
   };
   const initialize = () => {
     setIsFirstUpdate(true);
-    requestGetWeatherCityList();
+    requestGetWeatherSettingCityList();
     setRequestCounter(1);
   };
   /* Views */
