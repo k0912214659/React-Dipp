@@ -1,6 +1,6 @@
 export const GLOBAL_ACTION = Object.freeze({
   SET_GLOBAL_LANG: Symbol('SET_GLOBAL_LANG'),
-  SET_GLOBAL_API_TARGET: Symbol('SET_GLOBAL_API_TARGET'),
+  SET_GLOBAL_SIDE_BAR: Symbol('SET_GLOBAL_SIDE_BAR'),
 });
 export const MESSAGE_ACTION = Object.freeze({
   SET_MESSAGE_DIALOG: Symbol('SET_MESSAGE_DIALOG'),

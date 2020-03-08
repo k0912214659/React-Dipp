@@ -1,0 +1,4 @@
+/* Component Style */
+:local(.sidebarDrawerStyle) > :global(.MuiDrawer-paper) {
+  min-width: 210px;
+}

@@ -11,8 +11,8 @@ export function createGlobalReducer(params) {
       case GLOBAL_ACTION.SET_GLOBAL_LANG:
         draft.updateGlobalLangs(action.lang);
         break;
-      case GLOBAL_ACTION.SET_GLOBAL_API_TARGET:
-        draft.updateGlobalAPITarget(action.target);
+      case GLOBAL_ACTION.SET_GLOBAL_SIDE_BAR:
+        draft.updateGlobalSideBar(action.sideBar);
         break;
       default:
         break;

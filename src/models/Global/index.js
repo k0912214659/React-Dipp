@@ -15,11 +15,16 @@ class Global extends Immerable {
       hostURL: getHostURL(props.API_ENV),
     };
     this.globalLang = 'en';
+    this.globalSideBar = false;
   }
 
   updateGlobalLangs(newGlobalLang) {
     const cloneNewGlobalLang = cloneDeep(newGlobalLang);
     this.globalLang = cloneNewGlobalLang;
+  }
+
+  updateGlobalSideBar(newGlobalSideBar) {
+    this.globalSideBar = newGlobalSideBar;
   }
 }
 

@@ -12,6 +12,14 @@
   display: flex;
   padding: 10px;
 }
+:local(.headerLogoDrawerContainer) {
+  width: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 :local(.headerLogoIconContainer) {
   width: 60px;
   height: 100%;

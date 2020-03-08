@@ -13,6 +13,7 @@ import {
   deleteUserSession,
 } from '@Reducers/user/actions';
 import Header from '@Components/Header';
+import SideBar from '@Components/SideBar';
 import Loading from '@Components/Base/Loading';
 import LazyComponent from '@Components/Base/Lazy';
 import ModalDialog from '@Components/Modals/ModalDialog';
@@ -52,6 +53,7 @@ function App({ Router, routerProps }) {
               </div>
               <div className={classNames(Styles.appBody)}>
                 <div className={classNames(Styles.appHeart)}>
+                  <SideBar />
                   <div className={classNames(Styles.appMain)}>
                     <LazyComponent componentImport={import('./RouteComponent/AdminRoute')} componentChunkName="AdminRouteChunk" />
                   </div>
