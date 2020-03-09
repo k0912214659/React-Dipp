@@ -2,6 +2,7 @@ import Global from '@Models/Global';
 import Message from '@Models/Message';
 import Weather from '@Models/Weather';
 import User from '@Models/User';
+import AD from '@Models/AD';
 
 async function createInitial(param) {
   return {
@@ -9,6 +10,7 @@ async function createInitial(param) {
     message: new Message(),
     weather: new Weather(),
     user: new User(),
+    ad: new AD(),
   };
 }
 

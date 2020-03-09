@@ -8,6 +8,7 @@ import { createGlobalReducer } from './global';
 import { createMessageReducer } from './message';
 import { createWeatherReducer } from './weather';
 import { createUserReducer } from './user';
+import { createADReducer } from './ad';
 
 async function createStore(params) {
   const { initialState } = params;
@@ -24,6 +25,9 @@ async function createStore(params) {
       }),
       user: createUserReducer({
         initialState: initialState.user,
+      }),
+      ad: createADReducer({
+        initialState: initialState.ad,
       }),
     }),
     applyMiddleware(thunk),

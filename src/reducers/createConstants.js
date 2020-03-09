@@ -17,3 +17,7 @@ export const WEATHER_ACTION = Object.freeze({
   SET_WEATHER_CITY_SETTING_LIST: Symbol('SET_WEATHER_CITY_SETTING_LIST'),
   SET_WEATHER_CITY_DATA_LIST: Symbol('SET_WEATHER_CITY_DATA_LIST'),
 });
+export const AD_ACTION = Object.freeze({
+  SET_AD_OBJECT: Symbol('SET_AD_OBJECT'),
+  SET_AD_SELECT: Symbol('SET_AD_SELECT'),
+});
