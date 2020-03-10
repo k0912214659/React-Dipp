@@ -1,0 +1,59 @@
+/* Component Style */
+:local(.headerAppStyle) {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row !important;
+  background-color: #4e4d4a !important;
+}
+:local(.headerLogoContainer) {
+  height: 100%;
+  position: relative;
+  display: flex;
+  padding: 10px;
+}
+:local(.headerLogoDrawerContainer) {
+  width: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+:local(.headerLogoIconContainer) {
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+:local(.headerLogoTextContainer) {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:local(.headerLogoProfileContainer) {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:local(.headerLogoProfileIconContainer) {
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:local(.headerLogoProfileTextContainer) {
+  height: 100%;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:local(.headerLogoProfileButtonStyle) {
+  color: white !important;
+}

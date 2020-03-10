@@ -8,7 +8,8 @@ module.exports = {
   '@Images': path.resolve(__dirname, '..', 'src', 'image-loader'),
   '@Tools': path.resolve(__dirname, '..', 'src', 'tools'),
   '@Hooks': path.resolve(__dirname, '..', 'src', 'hooks'),
+  '@Service': path.resolve(__dirname, '..', 'src', 'service'),
   '@Models': path.resolve(__dirname, '..', 'src', 'models'),
   '@CSS': path.resolve(__dirname, '..', 'src', 'css'),
-  '@Langs': path.resolve(__dirname, '..', 'src', 'langs')
+  '@Source': path.resolve(__dirname, '..', 'src', 'source')
 };

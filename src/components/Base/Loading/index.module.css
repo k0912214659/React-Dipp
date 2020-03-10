@@ -1,0 +1,111 @@
+/* General Style */
+:local(.flexCentral) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+@keyframes iconLoadAnim {
+  0% {
+  	transform: scale(1);
+  }
+  50% {
+  	transform: scale(1.1);
+  }
+  100% {
+  	transform: scale(1);
+  }
+}
+@keyframes textLoadAnim {
+  to {
+    width: 20px;
+    margin-right: 0;   
+  }
+}
+
+/* Component Style */
+:local(.fullScreenLoadingContainer) {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10000;
+}
+:local(.relateScreenLoadingContainer) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+}
+:local(.backgroundBlack) {
+  background: rgba(0, 0, 0, 0.6);
+}
+:local(.backgroundWhite) {
+  background: rgb(255, 255, 255, 0.9);
+}
+:local(.backgroundBlackImage) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+}
+:local(.backgroundWhiteImage) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+}
+:local(.loadingTextWhite) {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  color: #7E8285;
+}
+:local(.loadingTextBlack) {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: white;
+}
+:local(.loadingAreaContainer){
+  width: 90px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+:local(.loadingIconStyle) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: iconLoadAnim 1.2s infinite ease-in-out;
+}
+:local(.loadingTextStyle) {
+  width: 100%;
+  display: flex;
+  font-style: normal;
+  text-align: center;
+  margin-top: 10px;
+}
+:local(.loadingTextStyle::before){
+  font-style: normal;
+  text-align: center;
+}
+:local(.loadingTextStyle::after) {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: textLoadAnim steps(4, end) 1.2s infinite;
+  content: "\2026";
+  width: 0;
+}
+:local(.loadingZIndex) {
+  z-index: 1000;
+}
