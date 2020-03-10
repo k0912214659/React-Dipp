@@ -63,7 +63,7 @@ class BaseAPIService {
   }
 
   setApiExternalProps(propertyName, propertyValue) {
-    if (propertyName && typeof propertyName === 'string' && propertyValue) {
+    if (propertyName && typeof propertyName === 'string') {
       this.baseAPIExternalProps[propertyName.trim()] = propertyValue;
     }
   }
