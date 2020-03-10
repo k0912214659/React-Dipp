@@ -1,0 +1,15 @@
+/* Component Style */
+:local(.weatherClientContainer) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+:local(.weatherClientMainContainer) {
+  margin: 0;
+  position: relative;
+  overflow-x: auto;
+}
+:local(.weatherClientInnerContainer) {
+  position: relative;
+}

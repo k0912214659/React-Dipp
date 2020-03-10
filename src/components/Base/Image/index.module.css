@@ -1,0 +1,41 @@
+/* General Style */
+:local(.flexCentral) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Component Style */
+:local(.imageContainer) {
+  width: 100%;
+  height: 100%;
+}
+:local(.imageSmallContainer) {
+  width: 30px;
+  height: auto;
+}
+:local(.imageMediumContainer) {
+  width: 55px;
+  height: auto;
+}
+:local(.imageLargeContainer) {
+  width: 90px;
+  height: auto;
+}
+:local(.imageFitContainer) {
+  width: 100%;
+  height: 100%;
+}
+:local(.imageCircular) {
+  border-radius: 100px;
+}
+:local(.imageBorder) {
+  border: 1px solid #E6E6E6;
+}
+:local(.imageCover) {
+  object-fit: cover;
+}
+:local(.imageContain) {
+  object-fit: contain;
+}
