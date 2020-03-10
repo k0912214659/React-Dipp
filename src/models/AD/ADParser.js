@@ -83,21 +83,18 @@ class ADParser {
     const { copys } = ad;
     const ctx = this.canvasRef.getContext('2d');
     if (Array.isArray(copys)) {
-      copys.forEach((copy) => {
-        ctx.fillStyle = copy.text_color;
-        copy.splits.forEach((text) => {
-          // const newStyle = document.createElement('style');
-          // newStyle.appendChild(document.createTextNode(`\n
-          //   @font-face {\n
-          //     font-family: ${copy.font.family};\n
-          //     src: url(${copy.font.url});\n
-          //   }\n
-          // `));
-          // document.head.appendChild(newStyle);
-          ctx.font = `${text.size}px ${copy.font.family}`;
+      for (let i = 0; i < copys.length; i += 1) {
+        ctx.fillStyle = copys[i].text_color;
+        const font = new FontFace(copys[i].font.family, `url('data:font/opentype;base64,${copys[i].font.url}')`);
+        /* eslint-disable-next-line */
+        await font.load();
+        document.fonts.add(font);
+        document.body.classList.add('fonts-loaded');
+        copys[i].splits.forEach((text) => {
+          ctx.font = `${text.size}px ${copys[i].font.family}`;
           ctx.fillText(text.content, text.x, text.y);
         });
-      });
+      }
     }
   }
 
@@ -120,6 +117,7 @@ class ADParser {
     ctx.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height);
     this.setCanvasWidthHeigh();
     this.canvasObject = null;
+    document.body.classList.remove('fonts-loaded');
   }
 }
 
