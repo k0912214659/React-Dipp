@@ -1,5 +1,4 @@
 import BaseAPIService from '@Service/BaseAPIService';
-import CityJson from '@Source/City/city.json';
 import { delay } from '@Tools/utility';
 
 class WeatherAPI extends BaseAPIService {
@@ -8,20 +7,32 @@ class WeatherAPI extends BaseAPIService {
     this.setApiBaseServiceType('WeatherAPI');
     this.setApiBaseUrl('http://api.openweathermap.org');
     this.setApiKey('27e5ae017372abef45f4085ab89232d4');
+    this.setApiExternalProps('IsFirstGetCityList', true);
+    this.setApiExternalProps('CityListCache', []);
   }
 
   async getHostWeatherCityList(page = 1, query = '', max = 10) {
-    await delay(400);
-    const groupsByMax = [];
-    const cityListObject = {
-      list: [],
-      page: {
-        cur: 1,
-        total: 1,
-      },
-    };
-    const cityListFiler = query ? CityJson.filter((city) => city.name.toLowerCase().indexOf(query.toLowerCase()) > -1) : CityJson;
     try {
+      const groupsByMax = [];
+      const cityListObject = {
+        list: [],
+        page: {
+          cur: 1,
+          total: 1,
+        },
+      };
+      let cityListFiler = [];
+      let cityOriginResource = [];
+      const isFirstGetList = this.getApiExternalProps('IsFirstGetCityList');
+      if (isFirstGetList) {
+        cityOriginResource = await this._get('https://react-dipp-source.s3.amazonaws.com/city.json');
+        this.setApiExternalProps('CityListCache', cityOriginResource);
+        this.setApiExternalProps('IsFirstGetCityList', false);
+      } else {
+        cityOriginResource = this.getApiExternalProps('CityListCache');
+        await delay(400);
+      }
+      cityListFiler = query ? cityOriginResource.filter((city) => city.name.toLowerCase().indexOf(query.toLowerCase()) > -1) : cityOriginResource;
       for (let i = 0, len = cityListFiler.length; i < len; i += max) {
         groupsByMax.push(cityListFiler.slice(i, i + max));
       }
@@ -41,7 +52,13 @@ class WeatherAPI extends BaseAPIService {
       return cityListObject;
     } catch (error) {
       const errorMessage = {
-        data: cityListObject,
+        data: {
+          list: [],
+          page: {
+            cur: 1,
+            total: 1,
+          },
+        },
         error: new Error('Get Local Weather City List Error', error),
       };
       return errorMessage;
