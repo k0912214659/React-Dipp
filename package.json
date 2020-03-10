@@ -24,7 +24,7 @@
   "scripts": {
     "start": "node scripts/start.js --progress",
     "build": "node scripts/build.js --progress",
-    "test": "node scripts/test.js",
+    "test": "node scripts/test.js  --passWithNoTests --watchAll=false",
     "dev": "cross-env NODE_ENV=dev npm run start",
     "stage": "cross-env NODE_ENV=stage npm run start",
     "production": "cross-env NODE_ENV=production npm run start",
